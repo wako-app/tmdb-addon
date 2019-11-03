@@ -18,17 +18,17 @@ export class OpenButtonComponent {
 
   viewOnTMDB() {
     if (this.movie && this.movie.tmdbId) {
-      this.browserService.open(`https://www.themoviedb.org/movie/${this.movie.tmdbId}`, false);
+      this.browserService.open(`https://www.themoviedb.org/movie/${this.movie.tmdbId}`, true);
       return;
     }
 
     if (this.show && this.episode && this.episode.tmdbId) {
-      this.browserService.open(`https://www.themoviedb.org/tv/${this.show.tmdbId}/season/${this.episode.traktSeasonNumber}/episode/${this.episode.traktNumber}`, false);
+      this.browserService.open(`https://www.themoviedb.org/tv/${this.show.tmdbId}/season/${this.episode.traktSeasonNumber}/episode/${this.episode.traktNumber}`, true);
       return;
     }
 
     if ((this.show && this.episode && this.show.tmdbId) || (this.show && this.show.tmdbId)) {
-      this.browserService.open(`https://www.themoviedb.org/tv/${this.show.tmdbId}`, false);
+      this.browserService.open(`https://www.themoviedb.org/tv/${this.show.tmdbId}`, true);
       return;
     }
 
