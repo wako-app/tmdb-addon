@@ -1,6 +1,6 @@
 {
   "$schema": "../../../node_modules/@wako-app/mobile-sdk/dist/manifest-schema.json",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "id": "plugin.tmdb",
   "name": "The Movie DB",
   "description": "Add a button to view the item on themoviedb.org",
@@ -16,7 +16,7 @@
     "fr": "/i18n/fr.json"
   },
   "changeLogs": {
-    "1.0.1": "Use internal browser",
+    "1.0.2": "Use internal browser",
     "1.0.0": "Initial Version"
   }
 }
