@@ -14,7 +14,7 @@ export class OpenButtonComponent {
   @Input() episode: Episode;
   @Input() type: 'button' = 'button';
 
-  constructor(private browserService: BrowserService, private storage: Storage) {}
+  constructor(private storage: Storage) {}
 
   private async getAppLang() {
     let lang = await this.storage.get('app_lang');
@@ -30,14 +30,14 @@ export class OpenButtonComponent {
     const lang = await this.getAppLang();
 
     if (this.movie && this.movie.tmdbId) {
-      this.browserService.open(`https://www.themoviedb.org/movie/${this.movie.tmdbId}?language=${lang}`, true);
+      BrowserService.open(`https://www.themoviedb.org/movie/${this.movie.tmdbId}?language=${lang}`, true);
       logEvent('addon_tmdb', { type: 'movie' });
 
       return;
     }
 
     if (this.show && this.episode && this.episode.tmdbId) {
-      this.browserService.open(
+      BrowserService.open(
         // tslint:disable-next-line: max-line-length
         `https://www.themoviedb.org/tv/${this.show.tmdbId}/season/${this.episode.traktSeasonNumber}/episode/${this.episode.traktNumber}?language=${lang}`,
         true
@@ -47,7 +47,7 @@ export class OpenButtonComponent {
     }
 
     if ((this.show && this.episode && this.show.tmdbId) || (this.show && this.show.tmdbId)) {
-      this.browserService.open(`https://www.themoviedb.org/tv/${this.show.tmdbId}?language=${lang}`, true);
+      BrowserService.open(`https://www.themoviedb.org/tv/${this.show.tmdbId}?language=${lang}`, true);
       logEvent('addon_tmdb', { type: 'tv-show' });
       return;
     }

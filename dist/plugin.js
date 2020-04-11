@@ -1,1 +1,374 @@
-!function(e,n){"object"==typeof exports&&"object"==typeof module?module.exports=n(require("ng.common"),require("tslib"),require("ng.forms"),require("ng.router"),require("ngx-translate.core"),require("ionic.storage"),require("wako-app.mobile-sdk"),require("ng.core"),require("ionic.angular")):"function"==typeof define&&define.amd?define(["ng.common","tslib","ng.forms","ng.router","ngx-translate.core","ionic.storage","wako-app.mobile-sdk","ng.core","ionic.angular"],n):"object"==typeof exports?exports.plugin=n(require("ng.common"),require("tslib"),require("ng.forms"),require("ng.router"),require("ngx-translate.core"),require("ionic.storage"),require("wako-app.mobile-sdk"),require("ng.core"),require("ionic.angular")):e.plugin=n(e["ng.common"],e.tslib,e["ng.forms"],e["ng.router"],e["ngx-translate.core"],e["ionic.storage"],e["wako-app.mobile-sdk"],e["ng.core"],e["ionic.angular"])}("undefined"!=typeof self?self:this,function(e,n,t,o,r,l,i,u,a){return function(e){var n={};function t(o){if(n[o])return n[o].exports;var r=n[o]={i:o,l:!1,exports:{}};return e[o].call(r.exports,r,r.exports,t),r.l=!0,r.exports}return t.m=e,t.c=n,t.d=function(e,n,o){t.o(e,n)||Object.defineProperty(e,n,{enumerable:!0,get:o})},t.r=function(e){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},t.t=function(e,n){if(1&n&&(e=t(e)),8&n)return e;if(4&n&&"object"==typeof e&&e&&e.__esModule)return e;var o=Object.create(null);if(t.r(o),Object.defineProperty(o,"default",{enumerable:!0,value:e}),2&n&&"string"!=typeof e)for(var r in e)t.d(o,r,(function(n){return e[n]}).bind(null,r));return o},t.n=function(e){var n=e&&e.__esModule?function(){return e.default}:function(){return e};return t.d(n,"a",n),n},t.o=function(e,n){return Object.prototype.hasOwnProperty.call(e,n)},t.p="",t(t.s=0)}({0:function(e,n,t){e.exports=t("zUnb")},"0S4P":function(n,t){n.exports=e},"17wl":function(e,t){e.exports=n},"3xDq":function(e,n){e.exports=t},FsH7:function(e,n,t){"use strict";Object.defineProperty(n,"__esModule",{value:!0});var o=t("17wl"),r=t("vOrQ"),l=t("z1lQ"),i=t("TGDj");n.ToastService=function(){function e(e,n){this.toastCtrl=e,this.translateService=n}return e.prototype.simpleMessage=function(e,n,t,o){var r=this;void 0===t&&(t=2e3),void 0===o&&(o="top"),this.translateService.get(e,n).subscribe(function(e){r.toastCtrl.create({message:e,mode:"ios",position:o,duration:t}).then(function(e){e.present()})})},o.__decorate([r.Injectable(),o.__metadata("design:paramtypes",[l.ToastController,i.TranslateService])],e)}()},GoKE:function(e,n,t){"use strict";Object.defineProperty(n,"__esModule",{value:!0});var o=t("17wl"),r=t("vOrQ"),l=t("z1lQ");n.BrowserService=function(){function e(e){this.platform=e}return e.prototype.open=function(e,n){void 0===n&&(n=!0),!1!==this.platform.is("cordova")&&n?SafariViewController.isAvailable(function(n){n?SafariViewController.show({url:e,hidden:!1,animated:!0,transition:"curl",enterReaderModeIfAvailable:!1,barColor:"#1f2d3f",tintColor:"#1f2d3f",controlTintColor:"#ffffff"}):window.open(e,"_system","location=yes")}):window.open(e,"_system","location=yes")},o.__decorate([r.Injectable(),o.__metadata("design:paramtypes",[l.Platform])],e)}()},JAnZ:function(e,n){e.exports=o},TGDj:function(e,n){e.exports=r},Zr0N:function(e,n){e.exports=l},doF0:function(e,n){e.exports=i},vOrQ:function(e,n){e.exports=u},z1lQ:function(e,n){e.exports=a},zUnb:function(e,n,t){"use strict";t.r(n);var o=t("17wl"),r=t("doF0"),l=t("TGDj");function i(){for(var e=[],n=0;n<arguments.length;n++)e[n]=arguments[n];Object(r.wakoLog)("plugin.tmdb",e)}function u(e,n){"FirebasePlugin"in window&&window.FirebasePlugin.logEvent(e,n)}var a=function(e){function n(n){var t=e.call(this)||this;return t.translate=n,t}return o.__extends(n,e),n.prototype.initialize=function(){i("plugin initialized")},n.prototype.afterInstall=function(){i("plugin installed")},n.prototype.afterUpdate=function(){i("plugin updated")},n.prototype.setTranslation=function(e,n){this.translate.setDefaultLang(e),this.translate.use(e),this.translate.setTranslation(e,n)},n}(r.PluginBaseService),s=function(e){function n(){return null!==e&&e.apply(this,arguments)||this}return o.__extends(n,e),n.prototype.setMovie=function(e){this.movie=e},n}(r.MovieDetailBaseComponent),c=function(e){function n(){return null!==e&&e.apply(this,arguments)||this}return o.__extends(n,e),n.prototype.setShowEpisode=function(e,n){this.show=e,this.episode=n},n}(r.EpisodeDetailBaseComponent),d=function(e){function n(){return null!==e&&e.apply(this,arguments)||this}return o.__extends(n,e),n.prototype.setShow=function(e){this.show=e},n}(r.ShowDetailBaseComponent),p=t("Zr0N"),f=function(){function e(e,n){this.browserService=e,this.storage=n,this.type="button"}return e.prototype.getAppLang=function(){return o.__awaiter(this,void 0,void 0,function(){var e;return o.__generator(this,function(n){switch(n.label){case 0:return[4,this.storage.get("app_lang")];case 1:return(e=n.sent())||(e="en"),[2,e]}})})},e.prototype.viewOnTMDB=function(){return o.__awaiter(this,void 0,void 0,function(){var e;return o.__generator(this,function(n){switch(n.label){case 0:return[4,this.getAppLang()];case 1:return e=n.sent(),this.movie&&this.movie.tmdbId?(this.browserService.open("https://www.themoviedb.org/movie/"+this.movie.tmdbId+"?language="+e,!0),u("addon_tmdb",{type:"movie"}),[2]):this.show&&this.episode&&this.episode.tmdbId?(this.browserService.open("https://www.themoviedb.org/tv/"+this.show.tmdbId+"/season/"+this.episode.traktSeasonNumber+"/episode/"+this.episode.traktNumber+"?language="+e,!0),u("addon_tmdb",{type:"episode"}),[2]):this.show&&this.episode&&this.show.tmdbId||this.show&&this.show.tmdbId?(this.browserService.open("https://www.themoviedb.org/tv/"+this.show.tmdbId+"?language="+e,!0),u("addon_tmdb",{type:"tv-show"}),[2]):[2]}})})},e}(),m=function(e){function n(){return null!==e&&e.apply(this,arguments)||this}return o.__extends(n,e),n.pluginService=a,n.movieComponent=s,n.episodeComponent=c,n.showComponent=d,n}(r.PluginBaseModule),g=t("vOrQ"),v=t("z1lQ"),h=t("0S4P");t("JAnZ");var w=g["\u0275crt"]({encapsulation:2,styles:[],data:{}});function b(e){return g["\u0275vid"](2,[g["\u0275ncd"](null,0)],null,null)}var _=g["\u0275crt"]({encapsulation:2,styles:[],data:{}});function y(e){return g["\u0275vid"](2,[g["\u0275ncd"](null,0)],null,null)}var S=g["\u0275crt"]({encapsulation:2,styles:[],data:{}});function T(e){return g["\u0275vid"](2,[g["\u0275ncd"](null,0)],null,null)}var C=t("GoKE"),x=g["\u0275crt"]({encapsulation:0,styles:[["ion-button[_ngcontent-%COMP%]{background-color:#00d276!important;border-radius:5px}"]],data:{}});function M(e){return g["\u0275vid"](0,[(e()(),g["\u0275eld"](0,0,null,null,7,"ion-button",[["color","tmdb"],["expand","block"]],null,[[null,"click"]],function(e,n,t){var o=!0;return"click"===n&&(o=!1!==e.component.viewOnTMDB()&&o),o},b,w)),g["\u0275did"](1,49152,null,0,v.IonButton,[g.ChangeDetectorRef,g.ElementRef,g.NgZone],{color:[0,"color"],expand:[1,"expand"]},null),(e()(),g["\u0275eld"](2,0,null,0,1,"ion-icon",[["name","film"],["slot","start"]],null,null,null,y,_)),g["\u0275did"](3,49152,null,0,v.IonIcon,[g.ChangeDetectorRef,g.ElementRef,g.NgZone],{name:[0,"name"]},null),(e()(),g["\u0275eld"](4,0,null,0,3,"ion-text",[],null,null,null,T,S)),g["\u0275did"](5,49152,null,0,v.IonText,[g.ChangeDetectorRef,g.ElementRef,g.NgZone],null,null),(e()(),g["\u0275ted"](6,0,["",""])),g["\u0275pid"](131072,l.TranslatePipe,[l.TranslateService,g.ChangeDetectorRef])],function(e,n){e(n,1,0,"tmdb","block"),e(n,3,0,"film")},function(e,n){e(n,6,0,g["\u0275unv"](n,6,0,g["\u0275nov"](n,7).transform("viewOnTMDB")))})}function k(e){return g["\u0275vid"](0,[(e()(),g["\u0275eld"](0,0,null,null,1,"wk-open-button",[],null,null,null,M,x)),g["\u0275did"](1,49152,null,0,f,[C.BrowserService,p.Storage],null,null)],null,null)}var P=g["\u0275ccf"]("wk-open-button",f,k,{movie:"movie",show:"show",episode:"episode",type:"type"},{},[]),D=g["\u0275crt"]({encapsulation:0,styles:[[""]],data:{}});function I(e){return g["\u0275vid"](0,[(e()(),g["\u0275eld"](0,0,null,null,1,"wk-open-button",[],null,null,null,M,x)),g["\u0275did"](1,49152,null,0,f,[C.BrowserService,p.Storage],{movie:[0,"movie"]},null)],function(e,n){e(n,1,0,n.component.movie)},null)}function O(e){return g["\u0275vid"](0,[(e()(),g["\u0275eld"](0,0,null,null,1,"ng-component",[],null,null,null,I,D)),g["\u0275did"](1,49152,null,0,s,[],null,null)],null,null)}var j=g["\u0275ccf"]("ng-component",s,O,{},{},[]),q=g["\u0275crt"]({encapsulation:0,styles:[[""]],data:{}});function E(e){return g["\u0275vid"](0,[(e()(),g["\u0275eld"](0,0,null,null,1,"wk-open-button",[],null,null,null,M,x)),g["\u0275did"](1,49152,null,0,f,[C.BrowserService,p.Storage],{show:[0,"show"],episode:[1,"episode"]},null)],function(e,n){var t=n.component;e(n,1,0,t.show,t.episode)},null)}function F(e){return g["\u0275vid"](0,[(e()(),g["\u0275eld"](0,0,null,null,1,"ng-component",[],null,null,null,E,q)),g["\u0275did"](1,49152,null,0,c,[],null,null)],null,null)}var A=g["\u0275ccf"]("ng-component",c,F,{},{},[]),R=g["\u0275crt"]({encapsulation:0,styles:[[""]],data:{}});function L(e){return g["\u0275vid"](0,[(e()(),g["\u0275eld"](0,0,null,null,1,"wk-open-button",[],null,null,null,M,x)),g["\u0275did"](1,49152,null,0,f,[C.BrowserService,p.Storage],{show:[0,"show"]},null)],function(e,n){e(n,1,0,n.component.show)},null)}function N(e){return g["\u0275vid"](0,[(e()(),g["\u0275eld"](0,0,null,null,1,"ng-component",[],null,null,null,L,R)),g["\u0275did"](1,49152,null,0,d,[],null,null)],null,null)}var B=g["\u0275ccf"]("ng-component",d,N,{},{},[]),z=t("3xDq"),U=t("FsH7"),Z=g["\u0275cmf"](m,[],function(e){return g["\u0275mod"]([g["\u0275mpd"](512,g.ComponentFactoryResolver,g["\u0275CodegenComponentFactoryResolver"],[[8,[j,A,B,P]],[3,g.ComponentFactoryResolver],g.NgModuleRef]),g["\u0275mpd"](4608,h.NgLocalization,h.NgLocaleLocalization,[g.LOCALE_ID,[2,h["\u0275angular_packages_common_common_a"]]]),g["\u0275mpd"](4608,z["\u0275angular_packages_forms_forms_o"],z["\u0275angular_packages_forms_forms_o"],[]),g["\u0275mpd"](4608,v.AngularDelegate,v.AngularDelegate,[g.NgZone,g.ApplicationRef]),g["\u0275mpd"](4608,v.ModalController,v.ModalController,[v.AngularDelegate,g.ComponentFactoryResolver,g.Injector]),g["\u0275mpd"](4608,v.PopoverController,v.PopoverController,[v.AngularDelegate,g.ComponentFactoryResolver,g.Injector]),g["\u0275mpd"](5120,g.APP_INITIALIZER,function(e,n,t){return[v["\u0275e"](e,n,t)]},[v["\u0275a"],h.DOCUMENT,g.NgZone]),g["\u0275mpd"](4608,l.TranslateLoader,l.TranslateFakeLoader,[]),g["\u0275mpd"](4608,l.TranslateCompiler,l.TranslateFakeCompiler,[]),g["\u0275mpd"](4608,l.TranslateParser,l.TranslateDefaultParser,[]),g["\u0275mpd"](4608,l.MissingTranslationHandler,l.FakeMissingTranslationHandler,[]),g["\u0275mpd"](4608,l.TranslateStore,l.TranslateStore,[]),g["\u0275mpd"](4608,l.TranslateService,l.TranslateService,[l.TranslateStore,l.TranslateLoader,l.TranslateCompiler,l.TranslateParser,l.MissingTranslationHandler,l.USE_DEFAULT_LANG,l.USE_STORE]),g["\u0275mpd"](4608,a,a,[l.TranslateService]),g["\u0275mpd"](4608,C.BrowserService,C.BrowserService,[v.Platform]),g["\u0275mpd"](4608,U.ToastService,U.ToastService,[v.ToastController,l.TranslateService]),g["\u0275mpd"](1073742336,h.CommonModule,h.CommonModule,[]),g["\u0275mpd"](1073742336,z["\u0275angular_packages_forms_forms_d"],z["\u0275angular_packages_forms_forms_d"],[]),g["\u0275mpd"](1073742336,z.FormsModule,z.FormsModule,[]),g["\u0275mpd"](1073742336,v.IonicModule,v.IonicModule,[]),g["\u0275mpd"](1073742336,l.TranslateModule,l.TranslateModule,[]),g["\u0275mpd"](1073742336,m,m,[]),g["\u0275mpd"](256,v["\u0275a"],void 0,[]),g["\u0275mpd"](256,l.USE_STORE,void 0,[]),g["\u0275mpd"](256,l.USE_DEFAULT_LANG,void 0,[])])});t.d(n,"PluginModule",function(){return m}),t.d(n,"PluginModuleNgFactory",function(){return Z}),n.default=Z}})});
+!(function (e, t) {
+  'object' == typeof exports && 'object' == typeof module
+    ? (module.exports = t(
+        require('ng.common'),
+        require('tslib'),
+        require('ng.forms'),
+        require('ngx-translate.core'),
+        require('ionic.storage'),
+        require('wako-app.mobile-sdk'),
+        require('ng.core'),
+        require('ionic.angular')
+      ))
+    : 'function' == typeof define && define.amd
+    ? define([
+        'ng.common',
+        'tslib',
+        'ng.forms',
+        'ngx-translate.core',
+        'ionic.storage',
+        'wako-app.mobile-sdk',
+        'ng.core',
+        'ionic.angular'
+      ], t)
+    : 'object' == typeof exports
+    ? (exports.plugin = t(
+        require('ng.common'),
+        require('tslib'),
+        require('ng.forms'),
+        require('ngx-translate.core'),
+        require('ionic.storage'),
+        require('wako-app.mobile-sdk'),
+        require('ng.core'),
+        require('ionic.angular')
+      ))
+    : (e.plugin = t(
+        e['ng.common'],
+        e.tslib,
+        e['ng.forms'],
+        e['ngx-translate.core'],
+        e['ionic.storage'],
+        e['wako-app.mobile-sdk'],
+        e['ng.core'],
+        e['ionic.angular']
+      ));
+})('undefined' != typeof self ? self : this, function (e, t, n, o, i, r, s, u) {
+  return (function (e) {
+    var t = {};
+    function n(o) {
+      if (t[o]) return t[o].exports;
+      var i = (t[o] = { i: o, l: !1, exports: {} });
+      return e[o].call(i.exports, i, i.exports, n), (i.l = !0), i.exports;
+    }
+    return (
+      (n.m = e),
+      (n.c = t),
+      (n.d = function (e, t, o) {
+        n.o(e, t) || Object.defineProperty(e, t, { enumerable: !0, get: o });
+      }),
+      (n.r = function (e) {
+        'undefined' != typeof Symbol && Symbol.toStringTag && Object.defineProperty(e, Symbol.toStringTag, { value: 'Module' }),
+          Object.defineProperty(e, '__esModule', { value: !0 });
+      }),
+      (n.t = function (e, t) {
+        if ((1 & t && (e = n(e)), 8 & t)) return e;
+        if (4 & t && 'object' == typeof e && e && e.__esModule) return e;
+        var o = Object.create(null);
+        if ((n.r(o), Object.defineProperty(o, 'default', { enumerable: !0, value: e }), 2 & t && 'string' != typeof e))
+          for (var i in e)
+            n.d(
+              o,
+              i,
+              function (t) {
+                return e[t];
+              }.bind(null, i)
+            );
+        return o;
+      }),
+      (n.n = function (e) {
+        var t =
+          e && e.__esModule
+            ? function () {
+                return e.default;
+              }
+            : function () {
+                return e;
+              };
+        return n.d(t, 'a', t), t;
+      }),
+      (n.o = function (e, t) {
+        return Object.prototype.hasOwnProperty.call(e, t);
+      }),
+      (n.p = ''),
+      n((n.s = 0))
+    );
+  })({
+    0: function (e, t, n) {
+      e.exports = n('zUnb');
+    },
+    '0S4P': function (t, n) {
+      t.exports = e;
+    },
+    '17wl': function (e, n) {
+      e.exports = t;
+    },
+    '3xDq': function (e, t) {
+      e.exports = n;
+    },
+    TGDj: function (e, t) {
+      e.exports = o;
+    },
+    Zr0N: function (e, t) {
+      e.exports = i;
+    },
+    doF0: function (e, t) {
+      e.exports = r;
+    },
+    vOrQ: function (e, t) {
+      e.exports = s;
+    },
+    z1lQ: function (e, t) {
+      e.exports = u;
+    },
+    zUnb: function (e, t, n) {
+      'use strict';
+      n.r(t),
+        n.d(t, 'PluginModule', function () {
+          return x;
+        });
+      var o = n('17wl'),
+        i = n('0S4P'),
+        r = n('z1lQ'),
+        s = n('doF0'),
+        u = n('TGDj');
+      function c() {
+        for (var e = [], t = 0; t < arguments.length; t++) e[t] = arguments[t];
+        Object(s.wakoLog)('plugin.tmdb', e);
+      }
+      function a(e, t) {
+        'FirebasePlugin' in window && window.FirebasePlugin.logEvent(e, t);
+      }
+      var p = n('vOrQ'),
+        l = (function (e) {
+          function t(t) {
+            var n = e.call(this) || this;
+            return (n.translate = t), n;
+          }
+          return (
+            Object(o.__extends)(t, e),
+            (t.prototype.initialize = function () {
+              c('plugin initialized');
+            }),
+            (t.prototype.afterInstall = function () {
+              c('plugin installed');
+            }),
+            (t.prototype.afterUpdate = function () {
+              c('plugin updated');
+            }),
+            (t.prototype.setTranslation = function (e, t) {
+              this.translate.setDefaultLang(e), this.translate.use(e), this.translate.setTranslation(e, t);
+            }),
+            (t.prototype.customAction = function (e, t) {}),
+            (t.ɵfac = function (e) {
+              return new (e || t)(p['\u0275\u0275inject'](u.TranslateService));
+            }),
+            (t.ɵprov = p['\u0275\u0275defineInjectable']({ token: t, factory: t.ɵfac })),
+            t
+          );
+        })(s.PluginBaseService),
+        d = n('Zr0N'),
+        f = (function () {
+          function e(e) {
+            (this.storage = e), (this.type = 'button');
+          }
+          return (
+            (e.prototype.getAppLang = function () {
+              return Object(o.__awaiter)(this, void 0, void 0, function () {
+                var e;
+                return Object(o.__generator)(this, function (t) {
+                  switch (t.label) {
+                    case 0:
+                      return [4, this.storage.get('app_lang')];
+                    case 1:
+                      return (e = t.sent()) || (e = 'en'), [2, e];
+                  }
+                });
+              });
+            }),
+            (e.prototype.viewOnTMDB = function () {
+              return Object(o.__awaiter)(this, void 0, void 0, function () {
+                var e;
+                return Object(o.__generator)(this, function (t) {
+                  switch (t.label) {
+                    case 0:
+                      return [4, this.getAppLang()];
+                    case 1:
+                      return (
+                        (e = t.sent()),
+                        this.movie && this.movie.tmdbId
+                          ? (s.BrowserService.open('https://www.themoviedb.org/movie/' + this.movie.tmdbId + '?language=' + e, !0),
+                            a('addon_tmdb', { type: 'movie' }),
+                            [2])
+                          : this.show && this.episode && this.episode.tmdbId
+                          ? (s.BrowserService.open(
+                              'https://www.themoviedb.org/tv/' +
+                                this.show.tmdbId +
+                                '/season/' +
+                                this.episode.traktSeasonNumber +
+                                '/episode/' +
+                                this.episode.traktNumber +
+                                '?language=' +
+                                e,
+                              !0
+                            ),
+                            a('addon_tmdb', { type: 'episode' }),
+                            [2])
+                          : (this.show && this.episode && this.show.tmdbId) || (this.show && this.show.tmdbId)
+                          ? (s.BrowserService.open('https://www.themoviedb.org/tv/' + this.show.tmdbId + '?language=' + e, !0),
+                            a('addon_tmdb', { type: 'tv-show' }),
+                            [2])
+                          : [2]
+                      );
+                  }
+                });
+              });
+            }),
+            (e.ɵfac = function (t) {
+              return new (t || e)(p['\u0275\u0275directiveInject'](d.Storage));
+            }),
+            (e.ɵcmp = p['\u0275\u0275defineComponent']({
+              type: e,
+              selectors: [['wk-open-button']],
+              inputs: { movie: 'movie', show: 'show', episode: 'episode', type: 'type' },
+              decls: 5,
+              vars: 3,
+              consts: [
+                ['expand', 'block', 'color', 'tmdb', 3, 'click'],
+                ['name', 'film', 'slot', 'start']
+              ],
+              template: function (e, t) {
+                1 & e &&
+                  (p['\u0275\u0275elementStart'](0, 'ion-button', 0),
+                  p['\u0275\u0275listener']('click', function () {
+                    return t.viewOnTMDB();
+                  }),
+                  p['\u0275\u0275element'](1, 'ion-icon', 1),
+                  p['\u0275\u0275elementStart'](2, 'ion-text'),
+                  p['\u0275\u0275text'](3),
+                  p['\u0275\u0275pipe'](4, 'translate'),
+                  p['\u0275\u0275elementEnd'](),
+                  p['\u0275\u0275elementEnd']()),
+                  2 & e && (p['\u0275\u0275advance'](3), p['\u0275\u0275textInterpolate'](p['\u0275\u0275pipeBind1'](4, 1, 'viewOnTMDB')));
+              },
+              directives: [r.IonButton, r.IonIcon, r.IonText],
+              pipes: [u.TranslatePipe],
+              styles: ['ion-button[_ngcontent-%COMP%]{background-color:#00d276!important;border-radius:5px}']
+            })),
+            e
+          );
+        })(),
+        m = (function (e) {
+          function t() {
+            return (null !== e && e.apply(this, arguments)) || this;
+          }
+          return (
+            Object(o.__extends)(t, e),
+            (t.prototype.setMovie = function (e) {
+              this.movie = e;
+            }),
+            (t.ɵfac = function (e) {
+              return h(e || t);
+            }),
+            (t.ɵcmp = p['\u0275\u0275defineComponent']({
+              type: t,
+              selectors: [['ng-component']],
+              features: [p['\u0275\u0275InheritDefinitionFeature']],
+              decls: 1,
+              vars: 1,
+              consts: [[3, 'movie']],
+              template: function (e, t) {
+                1 & e && p['\u0275\u0275element'](0, 'wk-open-button', 0), 2 & e && p['\u0275\u0275property']('movie', t.movie);
+              },
+              directives: [f],
+              styles: ['']
+            })),
+            t
+          );
+        })(s.MovieDetailBaseComponent),
+        h = p['\u0275\u0275getInheritedFactory'](m),
+        g = (function (e) {
+          function t() {
+            return (null !== e && e.apply(this, arguments)) || this;
+          }
+          return (
+            Object(o.__extends)(t, e),
+            (t.prototype.setShowEpisode = function (e, t) {
+              (this.show = e), (this.episode = t);
+            }),
+            (t.ɵfac = function (e) {
+              return b(e || t);
+            }),
+            (t.ɵcmp = p['\u0275\u0275defineComponent']({
+              type: t,
+              selectors: [['ng-component']],
+              features: [p['\u0275\u0275InheritDefinitionFeature']],
+              decls: 1,
+              vars: 2,
+              consts: [[3, 'show', 'episode']],
+              template: function (e, t) {
+                1 & e && p['\u0275\u0275element'](0, 'wk-open-button', 0),
+                  2 & e && p['\u0275\u0275property']('show', t.show)('episode', t.episode);
+              },
+              directives: [f],
+              styles: ['']
+            })),
+            t
+          );
+        })(s.EpisodeDetailBaseComponent),
+        b = p['\u0275\u0275getInheritedFactory'](g),
+        v = n('3xDq'),
+        w = (function (e) {
+          function t() {
+            return (null !== e && e.apply(this, arguments)) || this;
+          }
+          return (
+            Object(o.__extends)(t, e),
+            (t.prototype.setShow = function (e) {
+              this.show = e;
+            }),
+            (t.ɵfac = function (e) {
+              return y(e || t);
+            }),
+            (t.ɵcmp = p['\u0275\u0275defineComponent']({
+              type: t,
+              selectors: [['ng-component']],
+              features: [p['\u0275\u0275InheritDefinitionFeature']],
+              decls: 1,
+              vars: 1,
+              consts: [[3, 'show']],
+              template: function (e, t) {
+                1 & e && p['\u0275\u0275element'](0, 'wk-open-button', 0), 2 & e && p['\u0275\u0275property']('show', t.show);
+              },
+              directives: [f],
+              styles: ['']
+            })),
+            t
+          );
+        })(s.ShowDetailBaseComponent),
+        y = p['\u0275\u0275getInheritedFactory'](w),
+        x = (function (e) {
+          function t() {
+            return (null !== e && e.apply(this, arguments)) || this;
+          }
+          return (
+            Object(o.__extends)(t, e),
+            (t.pluginService = l),
+            (t.movieComponent = m),
+            (t.episodeComponent = g),
+            (t.showComponent = w),
+            (t.ɵmod = p['\u0275\u0275defineNgModule']({ type: t })),
+            (t.ɵinj = p['\u0275\u0275defineInjector']({
+              factory: function (e) {
+                return _(e || t);
+              },
+              providers: [l],
+              imports: [[i.CommonModule, v.FormsModule, r.IonicModule.forRoot(), u.TranslateModule.forRoot()]]
+            })),
+            t
+          );
+        })(s.PluginBaseModule),
+        _ = p['\u0275\u0275getInheritedFactory'](x);
+      t.default = x;
+    }
+  });
+});
