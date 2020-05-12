@@ -1,7 +1,6 @@
 import { Component, Input } from '@angular/core';
-import { BrowserService, Episode, Movie, Show } from '@wako-app/mobile-sdk';
+import { BrowserService, Episode, Movie, Show, WakoSettingsService } from '@wako-app/mobile-sdk';
 import { logEvent } from '../services/tools';
-import { Storage } from '@ionic/storage';
 
 @Component({
   selector: 'wk-open-button',
@@ -14,10 +13,10 @@ export class OpenButtonComponent {
   @Input() episode: Episode;
   @Input() type: 'button' = 'button';
 
-  constructor(private storage: Storage) {}
+  constructor() {}
 
   private async getAppLang() {
-    let lang = await this.storage.get('app_lang');
+    let lang = (await WakoSettingsService.getByCategory<{ lang: string }>('main')).lang;
 
     if (!lang) {
       lang = 'en';
@@ -29,25 +28,25 @@ export class OpenButtonComponent {
   async viewOnTMDB() {
     const lang = await this.getAppLang();
 
-    if (this.movie && this.movie.tmdbId) {
-      BrowserService.open(`https://www.themoviedb.org/movie/${this.movie.tmdbId}?language=${lang}`, true);
+    if (this.movie && this.movie.ids.tmdb) {
+      BrowserService.open(`https://www.themoviedb.org/movie/${this.movie.ids.tmdb}?language=${lang}`, true);
       logEvent('addon_tmdb', { type: 'movie' });
 
       return;
     }
 
-    if (this.show && this.episode && this.episode.tmdbId) {
+    if (this.show && this.episode && this.episode.ids.tmdb) {
       BrowserService.open(
         // tslint:disable-next-line: max-line-length
-        `https://www.themoviedb.org/tv/${this.show.tmdbId}/season/${this.episode.traktSeasonNumber}/episode/${this.episode.traktNumber}?language=${lang}`,
+        `https://www.themoviedb.org/tv/${this.show.ids.tmdb}/season/${this.episode.seasonNumber}/episode/${this.episode.number}?language=${lang}`,
         true
       );
       logEvent('addon_tmdb', { type: 'episode' });
       return;
     }
 
-    if ((this.show && this.episode && this.show.tmdbId) || (this.show && this.show.tmdbId)) {
-      BrowserService.open(`https://www.themoviedb.org/tv/${this.show.tmdbId}?language=${lang}`, true);
+    if ((this.show && this.episode && this.show.ids.tmdb) || (this.show && this.show.ids.tmdb)) {
+      BrowserService.open(`https://www.themoviedb.org/tv/${this.show.ids.tmdb}?language=${lang}`, true);
       logEvent('addon_tmdb', { type: 'tv-show' });
       return;
     }
