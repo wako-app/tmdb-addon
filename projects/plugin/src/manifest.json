@@ -6,11 +6,13 @@
   "description": "Add a button to view the item on themoviedb.org",
   "author": "wako",
   "actions": ["movies", "episodes", "shows"],
-  "entryPointV2": "/plugin.js",
-  "entryPoint": "https://raw.githubusercontent.com/wako-app/tmdb-addon/wako3/dist/plugin.js",
+  "entryPointV3": "/plugin.js",
+  "entryPointV2": "https://raw.githubusercontent.com/wako-app/tmdb-addon/wako5/dist/plugin.js",
   "languages": {
     "en": "/i18n/en.json",
-    "fr": "/i18n/fr.json"
+    "fr": "/i18n/fr.json",
+    "it": "/i18n/it.json",
+    "de": "/i18n/de.json"
   },
   "changeLogs": {
     "1.0.4": "Fix language issue",
