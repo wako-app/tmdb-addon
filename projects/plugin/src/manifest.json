@@ -7,7 +7,7 @@
   "author": "wako",
   "actions": ["movies", "episodes", "shows"],
   "entryPointV4": "/plugin.js",
-  "entryPointV3": "https://raw.githubusercontent.com/wako-app/watchnow-addon/entryPointV3/dist/plugin.js",
+  "entryPointV3": "https://raw.githubusercontent.com/wako-app/tmdb-addon/entryPointV3/dist/plugin.js",
   "languages": {
     "en": "/i18n/en.json",
     "fr": "/i18n/fr.json",
