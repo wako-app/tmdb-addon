@@ -12,44 +12,44 @@ const routes: Routes = [
         children: [
           {
             path: '',
-            loadChildren: () => import('../movie/movie.module').then((m) => m.MoviePageModule)
-          }
-        ]
+            loadChildren: () => import('../movie/movie.module').then((m) => m.MoviePageModule),
+          },
+        ],
       },
       {
         path: 'episode',
         children: [
           {
             path: '',
-            loadChildren: () => import('../episode/episode.module').then((m) => m.EpisodePageModule)
-          }
-        ]
+            loadChildren: () => import('../episode/episode.module').then((m) => m.EpisodePageModule),
+          },
+        ],
       },
       {
         path: 'settings',
         children: [
           {
             path: '',
-            loadChildren: () => import('../settings/settings.module').then((m) => m.SettingsPageModule)
-          }
-        ]
+            loadChildren: () => import('../settings/settings.module').then((m) => m.SettingsPageModule),
+          },
+        ],
       },
       {
         path: '',
         redirectTo: '/tabs/movie',
-        pathMatch: 'full'
-      }
-    ]
+        pathMatch: 'full',
+      },
+    ],
   },
   {
     path: '',
     redirectTo: '/tabs/movie',
-    pathMatch: 'full'
-  }
+    pathMatch: 'full',
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
 export class TabsPageRoutingModule {}

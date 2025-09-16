@@ -6,8 +6,8 @@
   "description": "Add a button to view the item on themoviedb.org",
   "author": "wako",
   "actions": ["movies", "episodes", "shows"],
-  "entryPointV3": "/plugin.js",
-  "entryPointV2": "https://raw.githubusercontent.com/wako-app/tmdb-addon/wako5/dist/plugin.js",
+  "entryPointV4": "/plugin.js",
+  "entryPointV3": "https://raw.githubusercontent.com/wako-app/watchnow-addon/entryPointV3/dist/plugin.js",
   "languages": {
     "en": "/i18n/en.json",
     "fr": "/i18n/fr.json",
